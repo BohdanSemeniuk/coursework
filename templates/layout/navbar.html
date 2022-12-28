@@ -1,0 +1,43 @@
+{% load static %}
+{% block navbar %}
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="{% static "img/logo.png" %}" width="150" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mx-auto">
+
+      </ul>
+    {% if user.is_authenticated %}
+      <form class="d-flex" action="{% url 'search' %}" method="get">
+        <label>
+          <input type="search" placeholder="Введіть назву..." name="search" class="form-control me-2" required="">
+        </label>
+        <button type="submit" class="btn btn-outline-secondary">
+          <span class="fa fa-search" aria-hidden="true"></span>
+        </button>
+      </form>
+    {% endif %}
+
+      <div class="ms-5">
+        {% if user.is_authenticated %}
+          <a class="link" href="{% url 'logout' %}">
+            <button class="btn btn-danger btn-md">Вийти</button>
+          </a>
+        {% else %}
+          <a class="link" href="{% url 'login' %}">
+            <button class="btn btn-danger btn-md">Увійти</button>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container-fluid">
+        {% include 'layout/navbar.html' %}
+    </div>
+
+    <div class="container">
+      <form action="{% url 'filter' %}" method="get">
+        <div class="row">
+          <div class="col-1 dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Жанри
+            </button>
+            <ul class="dropdown-menu checkbox-menu" aria-labelledby="dropdownMenuButton1">
+            {% for genre in all_genres %}
+              <li >
+                <label>
+                  <input type="checkbox" value="{{ genre.id }}" name="genre"> {{ genre.name }}
+                </label>
+              </li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="col-1 dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Роки
+            </button>
+              <ul class="dropdown-menu checkbox-menu" aria-labelledby="dropdownMenuButton1">
+                {% for movie in all_years %}
+                <li>
+                  <label>
+                    <input type="checkbox" value="{{ movie.year }}" name="year"> {{ movie.year }}
+                  </label>
+                 </li>
+                {% endfor %}
+              </ul>
+          </div>
+          <div class="col-1">
+            <button type="submit" class="btn btn-success">Шукати</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="container-fluid movie-show-section">
+      <h5 class="text-center mb-5"><b>Фільми</b></h5>
+      <div class="row">
+        {% for movie in movie_list %}
+          <div class="col-sm-3 mb-3 d-flex align-items-stretch">
+            <a href="{{ movie.get_absolute_url }}">
+              <img src="{{ movie.poster.url }}" class="img-fluid img-thumbnail" alt="">
+              <p>{{ movie.title }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+
+      <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link bg-transparent text-white border-0" href="?{{ q }}{{ genre }}{{ year }}page=1" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item">
+              <a class="page-link bg-transparent text-white border-0" href="?{{ q }}{{ genre }}{{ year }}page={{ page_obj.previous_page_number }}"> {{ page_obj.previous_page_number }}</a>
+          </li>
+        {% endif %}
+
+        <li class="page-item active" aria-current="page">
+          <a class="page-link text-white border-0" href="#">{{ page_obj.number }}</a>
+        </li>
+
+        {% if page_obj.has_next %}
+          <li class="page-item">
+              <a class="page-link bg-transparent text-white border-0" href="?{{ q }}{{ genre }}{{ year }}page={{ page_obj.next_page_number }}"> {{ page_obj.next_page_number }}</a>
+          </li>
+
+           <li class="page-item">
+            <a class="page-link bg-transparent text-white border-0" href="?{{ q }}{{ genre }}{{ year }}page={{ page_obj.paginator.num_pages }}" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+      {% endif %}
+      </ul>
+
+    </div>
+
+
+    {% include 'layout/footer.html' %}
+
+{% endblock %}
