@@ -344,14 +344,6 @@ a:hover{
     border-top: 8px solid #222;
 }
 
-.img-thumbnail {
-    background-color: #000000;
-    border: 1px solid #000000;
-    border-radius: 0.25rem;
-    width: 300px;
-    height: 450px;
-}
-
 .movie-details-header{
     padding-top: 50px;
     padding-bottom: 50px;

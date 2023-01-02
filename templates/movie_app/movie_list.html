@@ -8,8 +8,8 @@
 
     <div class="container">
       <form action="{% url 'filter' %}" method="get">
-        <div class="row">
-          <div class="col-1 dropdown">
+        <div class="d-flex ">
+          <div class="mr-4 p-2 dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Жанри
             </button>
@@ -23,7 +23,7 @@
             {% endfor %}
             </ul>
           </div>
-          <div class="col-1 dropdown">
+          <div class="mr-4 p-2 dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Роки
             </button>
@@ -37,20 +37,20 @@
                 {% endfor %}
               </ul>
           </div>
-          <div class="col-1">
+          <div class="mr-4 p-2">
             <button type="submit" class="btn btn-success">Шукати</button>
           </div>
         </div>
       </form>
     </div>
 
-    <div class="container-fluid movie-show-section">
+    <div class="container-fluid  movie-show-section">
       <h5 class="text-center mb-5"><b>Фільми</b></h5>
       <div class="row">
         {% for movie in movie_list %}
-          <div class="col-sm-3 mb-3 d-flex align-items-stretch">
+          <div class="col-sm-2 mb-3 align-items-stretch">
             <a href="{{ movie.get_absolute_url }}">
-              <img src="{{ movie.poster.url }}" class="img-fluid img-thumbnail" alt="">
+              <img src="{{ movie.poster.url }}" class="img-fluid" alt="">
               <p>{{ movie.title }}</p>
             </a>
           </div>

@@ -23,7 +23,7 @@ class MovieView(ListView):
     model = Movie
     queryset = Movie.objects.filter(draft=False)
     template_name = 'movie_app/movie_list.html'
-    paginate_by = 8
+    paginate_by = 12
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -113,7 +113,7 @@ class AddReview(View):
 
 
 class Search(ListView):
-    paginate_by = 4
+    paginate_by = 6
 
     def get_queryset(self):
         return Movie.objects.filter(title__iregex=self.request.GET.get("search"))
@@ -125,7 +125,7 @@ class Search(ListView):
 
 
 class FilterMovie(ListView):
-    paginate_by = 8
+    paginate_by = 12
 
     def get_queryset(self):
         queryset = Movie.objects.filter(draft=False)

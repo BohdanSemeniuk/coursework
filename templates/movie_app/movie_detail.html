@@ -8,10 +8,10 @@
 
     <div class="container movie-details-header">
         <div class="row">
-            <div class="col-sm-5 text-center">
-                <img src="{{ movie.poster.url }}" height="550" alt="poster">
+            <div class="col-sm text-center">
+                <img src="{{ movie.poster.url }}" height="550vh" alt="poster">
             </div>
-            <div class="col-sm-7">
+            <div class="col-sm">
                 <h1 class="py-2"><b>{{ movie.title }}</b></h1>
                 <h6><b>{{ movie.tagline }}</b></h6>
                 <p>{{ movie.description }}</p>
@@ -29,7 +29,7 @@
 
         <div class="modal-body">
             <div style="text-align: center;">
-                <iframe width="820" height="480" src="https://www.youtube.com/embed/{{ movie.youtube_trailer_url }}" title="YouTube video player" frameborder="0"
+                <iframe width="820" height="480" src="https://www.youtube.com/embed/{{ movie.youtube_trailer_url }}" title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
