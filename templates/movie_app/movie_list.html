@@ -48,7 +48,7 @@
       <h5 class="text-center mb-5"><b>Фільми</b></h5>
       <div class="row">
         {% for movie in movie_list %}
-          <div class="col-sm-2 mb-3 align-items-stretch">
+          <div class="col-sm-3 mb-3 align-items-stretch">
             <a href="{{ movie.get_absolute_url }}">
               <img src="{{ movie.poster.url }}" class="img-fluid" alt="">
               <p>{{ movie.title }}</p>
