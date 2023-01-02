@@ -8,10 +8,9 @@ from django.contrib.auth import models, decorators, authenticate, login
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, TemplateView
 
+from movie_site.settings import PASSWORD_PATTERN
 from .forms import ReviewForm
 from .logic.additional_function import *
-
-PASSWORD_PATTERN = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 
 
 class Home(TemplateView):

@@ -164,3 +164,4 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/movie_list/'
+PASSWORD_PATTERN = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
