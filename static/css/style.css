@@ -53,7 +53,7 @@ a:hover{
 }
 
 .form-control{
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     font-size: 1.25rem;
     line-height: 1.5;
     border-radius: 0;
@@ -195,6 +195,10 @@ a:hover{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+#contact-comment {
+    height: 20vh;
+}
+
 .movie-show-section{
     padding-left: 20px;
     padding-top: 50px;
@@ -238,7 +242,7 @@ a:hover{
 }
 
 .comment-field {
-    width: 60vh;
+    width: 40vw;
 }
 
 @media (max-width: 440px) {
