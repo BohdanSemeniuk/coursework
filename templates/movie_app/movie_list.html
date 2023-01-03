@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+
     <div class="container-fluid">
         {% include 'layout/navbar.html' %}
     </div>
@@ -15,7 +16,7 @@
             </button>
             <ul class="dropdown-menu checkbox-menu" aria-labelledby="dropdownMenuButton1">
             {% for genre in all_genres %}
-              <li >
+              <li>
                 <label>
                   <input type="checkbox" value="{{ genre.id }}" name="genre"> {{ genre.name }}
                 </label>

@@ -28,13 +28,13 @@
         <br>
 
         <div class="modal-body">
-            <div style="text-align: center;">
-                <iframe width="820" height="480" src="https://www.youtube.com/embed/{{ movie.youtube_trailer_url }}" title="YouTube video player"
+            <div class="container-fluid text-center">
+                <iframe width="860" height="480" class="responsive-iframe" src="https://www.youtube.com/embed/{{ movie.youtube_trailer_url }}" title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </div>
 
-        <div style="text-align: center;">
+        <div class="text-center">
             <a href="{% url 'movie_list' %}" style="margin: 100px;">
                 <button class="btn btn-danger btn-md text-center">Повернутись</button>
             </a>
@@ -48,7 +48,7 @@
                       id="formReview">
                     {% csrf_token %}
                     <input type="hidden" name="parent" id="contact-parent" value="">
-                    <div style="width: 500px;" >
+                    <div class="comment-field">
                         <label for="contact-comment">Ваш коментар *</label>
                         {{ form.text }}
                     </div>

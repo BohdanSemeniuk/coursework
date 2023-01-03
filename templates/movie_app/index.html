@@ -3,26 +3,26 @@
 
 {% block content %}
     <div class="jumbotron jumbotron-fluid">
-      <div class="container-fluid">
+{#      <div class="container-fluid">#}
         {% include 'layout/navbar.html' %}
-      </div>
+{#      </div>#}
 
-        <div class="container">
-          <div class="hero-text">
-            <h1 class="landing-title"><b>Безліч фільмів, серіалів та багато іншого.</b></h1>
-            <p class="hero-p">Дивіться будь-де.</p>
-            <p>Розпочніть свій перегляд зараз.</p>
-            {% if user.is_authenticated %}
-                <a href="{% url 'movie_list' %}">
-                    <button class="btn btn-danger btn-lg">Перейти до фільмів</button>
-                </a>
-              {% else %}
-              <a href="{% url 'register' %}">
-                    <button class="btn btn-danger btn-lg">Розпочати</button>
+      <div class="container">
+        <div class="hero-text">
+          <h1 class="landing-title"><b>Безліч фільмів, серіалів та багато іншого.</b></h1>
+          <p class="hero-p">Дивіться будь-де.</p>
+          <p>Розпочніть свій перегляд зараз.</p>
+          {% if user.is_authenticated %}
+              <a href="{% url 'movie_list' %}">
+                  <button class="btn btn-danger btn-lg">Перейти до фільмів</button>
               </a>
-              {% endif %}
-          </div>
+            {% else %}
+            <a href="{% url 'register' %}">
+                  <button class="btn btn-danger btn-lg">Розпочати</button>
+            </a>
+            {% endif %}
         </div>
+      </div>
 
     </div>
 
